@@ -129,23 +129,21 @@
             color: white;
         }
         .cards{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            overflow-x: hidden;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+            align-items: stretch;
             color: aliceblue;
             gap: 10px;
-            height: 280px;
             padding: 20px;
            
         }
         .card img{
-             width: 150px;
+             width: min(100%, 150px);
              height: auto;
         }
         .card{
             padding: 5px;
-            height: 222px;
+            min-width: 0;
             border: 3px solid blueviolet;
         }
         .name{
@@ -162,6 +160,10 @@
 
         /* responsive */
         @media (max-width:600px) {
+            .cards{
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
             .navbar {
                 display: flex;
                 justify-content: center;
@@ -175,10 +177,4 @@
                 padding: 100px;
                 justify-content: space-around;
             }
-            .cards{
-                display: grid;
-                grid-template-columns: repeat(auto-fit);
-                
-            }
-            
         }
